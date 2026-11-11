@@ -1,0 +1,9 @@
+*.log
+*.swp
+*~
+.DS_Store
+*.pem
+*.key
+*.crt
+backups/
+Maildir/
