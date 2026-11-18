@@ -1,0 +1,26 @@
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+append_dot_mydomain = no
+
+myhostname = mail.adsr.fssm.ma
+mydomain = adsr.fssm.ma
+myorigin = $mydomain
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+relayhost =
+
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.56.0/24
+inet_interfaces = all
+inet_protocols = ipv4
+
+home_mailbox = Maildir/
+mailbox_size_limit = 0
+recipient_delimiter = +
+
+# Uncomment during integration with Membre 2 (Dovecot):
+# smtpd_sasl_type = dovecot
+# smtpd_sasl_path = private/auth
+# smtpd_sasl_auth_enable = yes
+# smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
+
+# Protection anti-relais obligatoire (Postfix >= 3.x)
+smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, defer_unauth_destination
